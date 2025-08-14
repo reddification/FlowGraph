@@ -482,12 +482,17 @@ void SFlowGraphNode::CreateConfigText(const TSharedPtr<SVerticalBox>& InnerVerti
 {
 	static const FMargin ConfigTextPadding = FMargin(2.0f, 0.0f, 0.0f, 3.0f);
 
+	float WrapTextAt = 300.f;
+	if (FlowGraphNode)
+		if (auto NodeInstance = FlowGraphNode->GetNodeInstance())
+			WrapTextAt = NodeInstance->WrapConfigTextAt;
+	
 	InnerVerticalBox->AddSlot()
 		.AutoHeight()
 		.Padding(ConfigTextPadding)
 		[
 			SAssignNew(ConfigTextBlock, STextBlock)
-			.AutoWrapText(true)
+			.WrapTextAt(WrapTextAt)
 			.LineBreakPolicy(FBreakIterator::CreateWordBreakIterator())
 			.Text(this, &SFlowGraphNode::GetNodeConfigText)
 		];

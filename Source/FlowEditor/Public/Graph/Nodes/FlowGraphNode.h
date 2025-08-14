@@ -131,6 +131,7 @@ public:
 	FString GetNodeDescription() const;
 
 	// Get flow node for the inspected asset instance
+	const UFlowNodeBase* GetNodeInstance() const;
 	UFlowNode* GetInspectedNodeInstance() const;
 
 	UFlowAsset* GetFlowAsset() const;

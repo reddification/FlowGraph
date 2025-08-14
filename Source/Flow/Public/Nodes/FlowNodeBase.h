@@ -289,6 +289,12 @@ protected:
 
 	FFlowNodeEvent OnReconstructionRequested;
 	FFlowMessageLog ValidationLog;
+
+	
+	//G2VS2
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Display")
+	float WrapConfigTextAt = 300.f;
+
 #endif // WITH_EDITORONLY_DATA
 
 #if WITH_EDITOR

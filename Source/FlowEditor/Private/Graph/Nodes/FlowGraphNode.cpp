@@ -724,6 +724,11 @@ FString UFlowGraphNode::GetNodeDescription() const
 	return FString();
 }
 
+const UFlowNodeBase* UFlowGraphNode::GetNodeInstance() const
+{
+	return NodeInstance.Get();
+}
+
 UFlowNode* UFlowGraphNode::GetInspectedNodeInstance() const
 {
 	const UFlowNode* FlowNode = Cast<UFlowNode>(NodeInstance);
