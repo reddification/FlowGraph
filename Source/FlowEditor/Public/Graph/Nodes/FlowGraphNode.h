@@ -131,6 +131,8 @@ public:
 	/* Short summary of node's content. */
 	FString GetNodeDescription() const;
 
+	const UFlowNodeBase* GetNodeInstance() const;
+	
 	/* Get flow node for the inspected asset instance. */
 	UFlowNode* GetInspectedNodeInstance() const;
 
