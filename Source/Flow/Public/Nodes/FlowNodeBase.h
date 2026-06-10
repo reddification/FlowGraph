@@ -1,6 +1,7 @@
 // Copyright https://github.com/MothCocoon/FlowGraph/graphs/contributors
 #pragma once
 
+#include "Runtime/Engine/Public/DrawDebugHelpers.h"
 #include "Templates/SubclassOf.h"
 
 #include "Interfaces/FlowCoreExecutableInterface.h"
@@ -103,9 +104,6 @@ public:
 	// IFlowCoreExecutableInterface
 	virtual void InitializeInstance() override;
 	virtual void DeinitializeInstance() override;
-
-	virtual void PreloadContent() override;
-	virtual void FlushContent() override;
 
 	virtual void OnActivate() override;
 	virtual void ExecuteInput(const FName& PinName) override;
@@ -546,7 +544,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "FlowNode", meta = (DevelopmentOnly))
 	void LogVerbose(FString Message) const;
 
-#if !UE_BUILD_SHIPPING
+#if !NO_LOGGING || UE_ENABLE_DEBUG_DRAWING
 protected:
 	bool BuildMessage(FString& Message) const;
 #endif
